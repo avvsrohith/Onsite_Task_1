@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@null"
     tools:context=".Event_details">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,12 +14,15 @@
 
         <EditText
             android:id="@+id/et_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:background="@drawable/edittextbg"
             android:ems="10"
+            android:fontFamily="@font/productsans"
+            android:hint="   Title"
             android:inputType="textPersonName"
-            android:text="Title"
             android:textColor="#FFFFFF"
+            android:textColorHint="#9A9FA5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
@@ -28,12 +32,14 @@
 
         <EditText
             android:id="@+id/et_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:background="@drawable/edittextbg"
             android:ems="10"
+            android:hint="   Description"
             android:inputType="textPersonName"
-            android:text="Description"
             android:textColor="#FFFFFF"
+            android:textColorHint="#9A9FA5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
@@ -43,11 +49,14 @@
 
         <EditText
             android:id="@+id/et_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/edittextbg"
             android:ems="10"
+            android:hint="   Time"
             android:inputType="time"
             android:textColor="#FFFFFF"
+            android:textColorHint="#9A9FA5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
@@ -59,24 +68,30 @@
             android:id="@+id/btn_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:backgroundTint="@null"
             android:text="Save"
+            android:textColor="#8AB4F8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.659"
+            app:layout_constraintHorizontal_bias="0.795"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_time"
-            app:layout_constraintVertical_bias="0.229" />
+            app:layout_constraintVertical_bias="0.709" />
 
         <Button
             android:id="@+id/btn_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:backgroundTint="@null"
             android:text="Delete"
+            android:textColor="#8AB4F8"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.671"
+            app:layout_constraintEnd_toStartOf="@+id/btn_save"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_save"
-            app:layout_constraintVertical_bias="0.183" />
+            app:layout_constraintTop_toBottomOf="@+id/et_time"
+            app:layout_constraintVertical_bias="0.709" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -34,9 +34,10 @@ public class Event_details extends AppCompatActivity {
     ViewModel viewModel;
     TimePickerDialog timePickerDialog;
     Calendar calendar,pCalender;
+    public static String nTitle,nDesc;
     int minutes,hour;
-    PendingIntent pendingIntent;
-    AlarmManager alarmManager;
+    PendingIntent pendingIntent,pendingIntentp;
+    AlarmManager alarmManager,palarmmanager;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -74,7 +75,7 @@ public class Event_details extends AppCompatActivity {
                         hour=hourOfDay-1;
                     }
                     else{
-                        minutes=minute;
+                        minutes=minute-15;
                         hour=hourOfDay;
                     }
 
@@ -85,6 +86,7 @@ public class Event_details extends AppCompatActivity {
                     pCalender.set(Calendar.MILLISECOND,0);
 
                     setNotificaton();
+                    setPriorNotification();
 
                 },0,0,false );
                 timePickerDialog.show();
@@ -130,9 +132,26 @@ public class Event_details extends AppCompatActivity {
     private void setNotificaton(){
         alarmManager= (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
+
+        nTitle=title.getText().toString();
+        nDesc=desc.getText().toString();
         Intent intent=new Intent(this,AlarmReciever.class);
-        pendingIntent=PendingIntent.getBroadcast(this,0,intent,0);
+        pendingIntent=PendingIntent.getBroadcast(this,1,intent,0);
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
+
+    }
+    private void setPriorNotification(){
+
+        palarmmanager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        nTitle="Upcoming event";
+        nDesc=title.getText().toString();
+
+        Intent intent1=new Intent(this,AlarmReciever.class);
+        pendingIntentp=PendingIntent.getBroadcast(this,0,intent1,0);
+        palarmmanager.setInexactRepeating(AlarmManager.RTC_WAKEUP,pCalender.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntentp);
+
+
     }
 
     private void cancelNotificaton(){
